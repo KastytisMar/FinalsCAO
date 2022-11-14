@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% from 'bootstrap5/form.html' import render_form %}
+
+{% block content %}
+{{ super() }}
+<div style="margin-top: 50px;" class="container">
+    <h3>Add Category</h3>
+
+    {{ render_form(form) }}
+</div>
+{% endblock %}

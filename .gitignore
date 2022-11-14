@@ -1,0 +1,47 @@
+# .gitignore file tells Git which files to ignore when committing your project
+# to the Git repository. .gitignore is located in the root directory of your
+# repo. The .gitignore file itself is a plain text document.
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+
+# Python virtual environment
+venv/
+
+# Environment files
+#
+# Python-dotenv makes the app load the configuration from a .env file when it is
+# present (e.g. in development environment)
+.env
+#
+# The environment variables for the MySQL container
+.env-mysql
+#
+# [Note] Make sure that the .env and .env-mysql environment files are created
+# and populated with values correct for your environment.
+#
+# [Caution] The .env and .env-mysql files contain passwords and other sensitive
+# information, so they should never be added to source control.
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Contains VS Code workspace settings as well as configurations.
+# Reference: https://code.visualstudio.com/docs/editor/workspaces.
+.vscode/
+
+# Contains dictionary settings for spellcheck in VS Code.
+cspell.json
+
+# PyCharm project-specific settings. It also contains user's local PyCharm configs
+# Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839.
+.idea/
+
+# Mac OS generated files
+.DS_Store
+.DS_Store?
+
+# Windows OS generated files
+Thumbs.db

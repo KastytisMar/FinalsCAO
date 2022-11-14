@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        {% block head %}
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        {% block styles %}
+            <!-- Bootstrap CSS -->
+            {{ bootstrap.load_css() }}
+        {% endblock %}
+
+        <title>Notes App with Flask</title>
+        {% endblock %}
+    </head>
+    <body style="background-image: url('https://mir-s3-cdn-cf.behance.net/project_modules/1400/4d845686128681.5d909dad4ddd3.jpg'); 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+    background-size: cover;">
+        <!-- Your page content -->
+        {% block content %}{% endblock %}
+        
+        {% block scripts %}
+            <!-- Optional JavaScript -->
+            {{ bootstrap.load_js() }}
+        {% endblock %}
+    </body>
+</html>
