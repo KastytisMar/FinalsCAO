@@ -14,14 +14,17 @@
 </form>
 <div style="margin-top: 50px;" class="container">
     <a href="{{ url_for('add_note') }}" class="btn btn-primary btn-m">Add new note</a>
-    <h3 class="text-center">Notes list</h3>
+    <h3 class="text-center mb-4">Notes list</h3>
         {% for note in notes %}
         <div class="d-flex justify-content-between">
             <div>
-                <div class="post-titlep-2 btn btn-primary">
+                <div class="btn bg-secondary bg-opacity-25 d-block btn-sm" style="width:80px">
+                    {{note.user.username}}
+                </div>
+                <div class="btn btn-primary btn-block">
                     {{ note.title }}
                 </div>
-                <div class="post-content mb-3 p-2 bg-secondary bg-opacity-25 rounded">
+                <div class="post-content p-2 mb-4 bg-secondary bg-opacity-25 rounded">
                     {{ note.content }}
                 </div>
             </div>
