@@ -4,7 +4,8 @@
 
 {% block content %}
 {{ super() }}
-<div style="margin-top: 50px;" class="container">
+<div style="margin-top: 50px;" class="container container bg-light bg-opacity-25 p-3 rounded">
+    <a href="{{ url_for('add_categories') }}" class="btn btn-primary btn-m">Add new category</a>
     <h2 class="text-center font-monospace">Categories list</h2>
     {% for category in categories %}
         <div class="d-flex justify-content-between">
@@ -16,9 +17,6 @@
         </div> 
             
         {% endfor %}
-        <div class="row p-2">
-        <a href="{{ url_for('add_categories') }}" class="btn btn-primary btn-m">Add new category</a>
-        </div>
  
 </div>
 {% endblock %}
