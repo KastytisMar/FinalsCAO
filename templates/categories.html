@@ -8,10 +8,10 @@
     <h3 class="text-center">Categories list</h3>
     {% for category in categories %}
         <div class="d-flex justify-content-between">
-            <div>{{ category.name }}</div>
-            <div>
-                <a href="{{ url_for('edit_category',id=category.id) }}" class="btn btn-outline-success btn-sm">Edit Category</a>
-                <a href="{{ url_for('delete_category',id=category.id) }}" class="btn btn-outline-danger btn-sm">Delete Category</a>
+            <div class="p-2 mb-2 bg-secondary bg-opacity-25 rounded">{{ category.name }}</div>
+            <div class="">
+                <a href="{{ url_for('edit_category',id=category.id) }}" class="btn btn-outline-success">Edit Category</a>
+                <a href="{{ url_for('delete_category',id=category.id) }}" class="btn btn-outline-danger">Delete Category</a>
             </div>  
         </div> 
             

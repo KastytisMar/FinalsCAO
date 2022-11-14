@@ -13,6 +13,7 @@
           </div>
 </form>
 <div style="margin-top: 50px;" class="container">
+    <a href="{{ url_for('add_note') }}" class="btn btn-primary btn-m">Add new note</a>
     <h3 class="text-center">Notes list</h3>
         {% for note in notes %}
         <div class="d-flex justify-content-between">
