@@ -4,7 +4,7 @@
 
 {% block content %}
 {{ super() }}
-<div style="margin-top: 50px;" class="container container bg-light bg-opacity-25 p-3 rounded shadow">
+<div style="margin-top: 50px;" class="container bg-light bg-opacity-25 p-3 rounded shadow font-monospace">
     <a href="{{ url_for('add_categories') }}" class="btn btn-primary btn-m">Add new category</a>
     <h2 class="text-center font-monospace">Categories list</h2>
     {% for category in categories %}

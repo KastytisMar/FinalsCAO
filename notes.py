@@ -53,7 +53,7 @@ class NoteForm(FlaskForm):
     submit = SubmitField('Create')
 
 class CategoryForm(FlaskForm):
-    name = StringField('Category name', validators=[DataRequired()])
+    name = StringField('Category name', validators=[DataRequired()],render_kw={"placeholder": "Category name"})
     submit = SubmitField('Create')
 
 class SearchForm(FlaskForm):
