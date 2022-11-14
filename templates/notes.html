@@ -4,15 +4,15 @@
 
 {% block content %}
 {{ super() }}
-<form method="GET" action="{{ url_for('search') }}" class="container mt-4">
+<form method="GET" action="{{ url_for('search') }}" class="container mt-4 p-3">
         <div class="input-group">
             <input type="text" class="form-control" type="search" placeholder="Search for a note..." name="q">
             <div class="input-group-append">
               <button class="btn btn-primary" type="submit">Search</button>
             </div>
-          </div>
+        </div>
 </form>
-<div style="margin-top: 50px;" class="container bg-light bg-opacity-25 p-3 rounded">
+<div class="container bg-light bg-opacity-25 p-3 mt-4 rounded shadow">
     <a href="{{ url_for('add_note') }}" class="btn btn-primary btn-m">Add new note</a>
     <h2 class="text-center mb-4 font-monospace ">Notes list</h2>
         {% for note in notes %}
