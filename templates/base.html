@@ -1,12 +1,12 @@
 {% extends "layout.html" %} {% block content %} {% from 'bootstrap5/nav.html' import render_nav_item %}
-<nav class="navbar">
-  <div class="container justify-content-center p-2">
-    <a class="navbar=brand ">{{ render_nav_item('index', 'Home') }}</a>
-    <a class="navbar=brand">{{ render_nav_item('notes', 'Notes') }}</a>
-    <a class="navbar=brand">{{ render_nav_item('categories', 'Categories') }}</a>
-    <a class="navbar=brand">{{ render_nav_item('register', 'Register') }}</a>
-    <a class="navbar=brand">{{ render_nav_item('login', 'Login') }}</a>
-    <a class="navbar=brand">{{ render_nav_item('logout', 'Log out')}}</a>
+<nav class="navbar navbar-expand-lg bg-light bg-opacity-25">
+  <div class="container-fluid justify-content-center p-2 font-monospace h6">
+    <a class="">{{ render_nav_item('index', 'Home') }}</a>
+    <a class="">{{ render_nav_item('notes', 'Notes') }}</a>
+    <a class="">{{ render_nav_item('categories', 'Categories') }}</a>
+    <a class="text-success">{{ render_nav_item('register', 'Register') }}</a>
+    <a class="">{{ render_nav_item('login', 'Login') }}</a>
+    <a class="">{{ render_nav_item('logout', 'Log out')}}</a>
     </div>
 </nav>
 {% endblock %}

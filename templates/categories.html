@@ -5,7 +5,7 @@
 {% block content %}
 {{ super() }}
 <div style="margin-top: 50px;" class="container">
-    <h3 class="text-center">Categories list</h3>
+    <h2 class="text-center font-monospace">Categories list</h2>
     {% for category in categories %}
         <div class="d-flex justify-content-between">
             <div class="p-2 mb-2 bg-secondary bg-opacity-25 rounded">{{ category.name }}</div>

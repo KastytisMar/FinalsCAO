@@ -14,7 +14,7 @@
 </form>
 <div style="margin-top: 50px;" class="container">
     <a href="{{ url_for('add_note') }}" class="btn btn-primary btn-m">Add new note</a>
-    <h3 class="text-center mb-4">Notes list</h3>
+    <h2 class="text-center mb-4 font-monospace ">Notes list</h2>
         {% for note in notes %}
         <div class="d-flex justify-content-between">
             <div>
@@ -22,15 +22,15 @@
                     {{note.user.username}}
                 </div>
                 <div class="btn btn-primary btn-block">
-                    {{ note.title }}
+                    {{ note.title + ":" }}
                 </div>
-                <div class="post-content p-2 mb-4 bg-secondary bg-opacity-25 rounded">
+                <div class="post-content p-2 mb-5 bg-secondary bg-opacity-25 rounded">
                     {{ note.content }}
                 </div>
             </div>
             <div>
                 <a href="{{ url_for('edit_note',id=note.id) }}" class="btn btn-outline-success btn-sm">Edit note</a>
-                <a href="{{ url_for('delete_note',id=note.id) }}" class="btn btn-outline-danger btn-sm">Delete Note</a>
+                <a href="{{ url_for('delete_note',id=note.id) }}" class="btn btn-outline-danger btn-sm">Delete note</a>
             </div>
         </div>
         {% endfor %}  

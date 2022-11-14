@@ -35,15 +35,15 @@ def load_user(user_id):
     return User.query.get(int(user_id))
 
 class RegistrationForm(FlaskForm):
-    email = StringField('Email', validators=[DataRequired(), Length(1, 64), Email()], render_kw={"placeholder": "Email"})
+    email = StringField('E-mail', validators=[DataRequired(), Length(1, 64), Email()], render_kw={"placeholder": "@"})
     username = StringField('Username', validators=[DataRequired(), Length(1, 64)],render_kw={"placeholder": "Username"})
     password = PasswordField('Password', validators=[DataRequired(), EqualTo('password2', message="Passwords didn't match")], render_kw={"placeholder": "Password"})
     password2 = PasswordField('Confirm password', validators=[DataRequired()], render_kw={"placeholder": "Password"})
     submit = SubmitField('Register')
 
 class LoginForm(FlaskForm):
-    email = StringField('Email', validators=[DataRequired(), Email()])
-    password = PasswordField('Password', validators=[DataRequired()]) 
+    email = StringField('E-mail', validators=[DataRequired(), Email()], render_kw={"placeholder": "@"})
+    password = PasswordField('Password', validators=[DataRequired()], render_kw={"placeholder": "Password"}) 
     remember_me = BooleanField('Keep me logged in')
     submit = SubmitField('Log In')
 
