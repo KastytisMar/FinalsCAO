@@ -35,10 +35,10 @@ def load_user(user_id):
     return User.query.get(int(user_id))
 
 class RegistrationForm(FlaskForm):
-    email = StringField('Email', validators=[DataRequired(), Length(1, 64), Email()])
-    username = StringField('Username', validators=[DataRequired(), Length(1, 64)])
-    password = PasswordField('Password', validators=[DataRequired(), EqualTo('password2', message="Passwords didn't match")])
-    password2 = PasswordField('Confirm password', validators=[DataRequired()])
+    email = StringField('Email', validators=[DataRequired(), Length(1, 64), Email()], render_kw={"placeholder": "Email"})
+    username = StringField('Username', validators=[DataRequired(), Length(1, 64)],render_kw={"placeholder": "Username"})
+    password = PasswordField('Password', validators=[DataRequired(), EqualTo('password2', message="Passwords didn't match")], render_kw={"placeholder": "Password"})
+    password2 = PasswordField('Confirm password', validators=[DataRequired()], render_kw={"placeholder": "Password"})
     submit = SubmitField('Register')
 
 class LoginForm(FlaskForm):
@@ -48,8 +48,8 @@ class LoginForm(FlaskForm):
     submit = SubmitField('Log In')
 
 class NoteForm(FlaskForm):
-    title = StringField('Title', validators=[DataRequired()])
-    content = StringField('Content', validators=[DataRequired()], widget=TextArea())
+    title = StringField('Title', validators=[DataRequired()],render_kw={"placeholder": "Title"})
+    content = StringField('Content', validators=[DataRequired()], widget=TextArea(),render_kw={"placeholder": "Type in your message"})
     submit = SubmitField('Create')
 
 class CategoryForm(FlaskForm):
