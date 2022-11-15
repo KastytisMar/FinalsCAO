@@ -3,13 +3,13 @@ import os
 from flask import Flask, render_template, flash, url_for, redirect, request
 from flask_bootstrap import Bootstrap5
 from flask_wtf import FlaskForm
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
+from flask_login import UserMixin, login_user, login_required, logout_user, current_user, LoginManager
 from wtforms import StringField, SubmitField, PasswordField, BooleanField
 from wtforms.validators import DataRequired, Email, EqualTo, Length
 from wtforms.widgets import TextArea
 import email_validator
-from flask_sqlalchemy import SQLAlchemy
-from flask_migrate import Migrate
-from flask_login import UserMixin, login_user, login_required, logout_user, current_user, LoginManager
 from werkzeug.security import generate_password_hash, check_password_hash
 
 basedir = os.path.abspath(os.path.dirname(__file__))
@@ -198,7 +198,7 @@ def delete_note(id):
             notes = Note.query.all()
             return render_template('.notes.html', notes=notes)
         except: 
-            flash('There was a problem deleting note. Try again')
+            flash('There was a problem deleting note')
             notes = Note.query.all()
             return render_template('notes.html', notes=notes)
     else:
@@ -251,7 +251,7 @@ def delete_category(id):
         categories = Category.query.all()
         return render_template('.categories.html', categories=categories)
     except: 
-        flash('There was a problem deleting note. Try again')
+        flash('There was a problem deleting note')
         categories = Category.query.all()
         return render_template('categories.html', categories=categories)
 
@@ -265,3 +265,14 @@ def search():
         notes = Note.query.all()
         flash('No posts were found')
         return render_template(url_for('.notes', notes=notes))
+
+@app.route('/filter', methods=['GET', 'POST'])
+def filter():
+    q = request.args.get('q')
+    if q:
+        categories = Category.query.filter(Category.name.contains(q))
+        return render_template('categories.html', categories=categories)
+    else: 
+        categories = Category.query.all()
+        flash('No categories were found')
+        return render_template(url_for('.categories',categories=categories))
