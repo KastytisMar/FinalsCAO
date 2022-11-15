@@ -4,13 +4,6 @@
 
 {% block content %}
 {{ super() }}
-<form method="GET" action="{{ url_for('filter') }}" class="container mt-4 p-3 font-monospace">
-    <div class="input-group">
-        <input type="text" class="form-control" type="search" placeholder="Filter category..." name="q">
-        <div class="input-group-append">
-          <button class="btn btn-primary" type="submit">Filter</button>
-        </div>
-    </div>
 </form>
 <div style="margin-top: 50px;" class="container bg-light bg-opacity-25 p-3 rounded shadow font-monospace">
     <a href="{{ url_for('add_categories') }}" class="btn btn-primary btn-m">Add new category</a>

@@ -265,14 +265,3 @@ def search():
         notes = Note.query.all()
         flash('No posts were found')
         return render_template(url_for('.notes', notes=notes))
-
-@app.route('/filter', methods=['GET', 'POST'])
-def filter():
-    q = request.args.get('q')
-    if q:
-        categories = Category.query.filter(Category.name.contains(q))
-        return render_template('categories.html', categories=categories)
-    else: 
-        categories = Category.query.all()
-        flash('No categories were found')
-        return render_template(url_for('.categories',categories=categories))
