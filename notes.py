@@ -206,16 +206,12 @@ def delete_note(id):
         notes = Note.query.all()
         return render_template('notes.html', notes=notes)
 
-### Categories ###
-
-### Display all categories ###
 
 @app.route('/categories', methods=['GET', 'POST'])
 def categories():
     categories = Category.query.all()
     return render_template('categories.html', categories=categories)
 
-### Create new category ###
 
 @app.route('/add_categories', methods=['GET', 'POST'])
 @login_required
@@ -230,8 +226,6 @@ def add_categories():
         flash('You need to login')
     return render_template('add_categories.html', form=form)
 
-### Edit category ###
-
 @app.route('/categories/edit/<int:id>', methods=['GET', 'POST'])
 @login_required
 def edit_category(id):
@@ -245,8 +239,6 @@ def edit_category(id):
         return redirect(url_for('.categories', id=category.id))
     form.name.data = category.name
     return render_template('edit_note.html', form=form)
-
-### Delete category ###
 
 @app.route('/categories/delete/<int:id>', methods=['GET', 'POST'])
 @login_required
@@ -263,8 +255,6 @@ def delete_category(id):
         categories = Category.query.all()
         return render_template('categories.html', categories=categories)
 
-### Search notes by the title ###
-
 @app.route('/search', methods=['GET', 'POST'])
 def search():
     q = request.args.get('q')
@@ -275,4 +265,3 @@ def search():
         notes = Note.query.all()
         flash('No posts were found')
         return render_template(url_for('.notes', notes=notes))
-
